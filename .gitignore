@@ -1,0 +1,38 @@
+# Local IDE
+.idea/
+
+# Transient workflow artifacts
+/docs/codex/tasks/*
+!/docs/codex/tasks/.gitkeep
+
+/docs/codex/stage_briefs/*
+!/docs/codex/stage_briefs/.gitkeep
+
+/docs/codex/reports/*
+!/docs/codex/reports/.gitkeep
+
+/docs/codex/plans/*
+!/docs/codex/plans/.gitkeep
+
+/docs/codex/diff/*
+!/docs/codex/diff/.gitkeep
+
+# Machine-local distribution state
+/config/distribution.local.json
+/config/guard.local.log
+
+# BEGIN PROJECT GITIGNORE TEMPLATE
+# # Universal secrets
+# .env
+# .env.*
+# !.env.example
+#
+# # Local IDE
+# .idea/
+#
+# # Agent workflow infrastructure
+# docs/codex/
+# .agents/
+# .codex/
+# AGENTS.md
+# END PROJECT GITIGNORE TEMPLATE

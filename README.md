@@ -1,227 +1,70 @@
+<div align="center">
+
 # 🧠 Command Center
 
-[Тест № 1](#проверка-навигации-по-схеме) · [Палитра: 40 вариантов](#mermaid-palette) · [Исходник Mermaid](assets/mermaid/formatting-palette.mmd)
+**Система работы специалиста с ChatGPT и Codex — от проработки задачи до проверенного изменения.**
 
-Система работы специалиста с ChatGPT и Codex: от проработки решения до исполнения и проверки изменений.
+![Markdown](https://img.shields.io/badge/Markdown-181717?style=flat-square&logo=markdown)
+![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=flat-square)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 
-## Проверка навигации по схеме
+[Полный процесс](PRESENTATION.md) · [Состав системы](#состав-системы) · [Документация](#документация) · [Мой вклад](#мой-вклад) · [Связанные инструменты](#связанные-инструменты)
 
-Нажмите на блоки **«Веб-часть»** и **«Локальный репозиторий»**: каждый должен открыть соответствующий документ. Второй переход ведёт сразу к разделу.
-
-```mermaid
-flowchart LR
-    W["Веб-часть"] -->|"Задание"| R["Локальный репозиторий"]
-    R -->|"Результат и проверки"| W
-    W -.-> C["Относительная ссылка — контроль"]
-    click W href "https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_WEB.md" "Открыть описание веб-части" _blank
-    click R href "https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_REPO.md#repo-target" "Открыть раздел локальной части" _blank
-    click C href "docs/guide/LINK_TEST_WEB.md" "Контроль относительной ссылки" _blank
-```
-
-Это временная проверка кликабельной навигации перед подготовкой полного показа процесса.
+</div>
 
 ---
 
-<a id="mermaid-palette"></a>
+При длительной разработке с AI нужно удерживать принятую архитектуру, состояние задачи и основания для следующего шага. Command Center связывает проработку решений, постановку ограниченных заданий, локальное исполнение и независимую проверку результата.
 
-## Временная проверка № 2 — палитра оформления
+Решения и рабочее состояние сохраняются в файлах. Это позволяет продолжать проект после паузы или смены чата, сверять изменения с принятым заданием и возвращать конкретные замечания на исправление.
 
-[Тест № 1](#проверка-навигации-по-схеме) · [Палитра: 40 вариантов](#mermaid-palette) · [Исходник Mermaid](assets/mermaid/formatting-palette.mmd)
+Специалист задаёт цель, утверждает существенные решения, управляет передачей заданий и результатов между средами и принимает итог работы.
 
-**40 образцов в одной схеме.** Текст и списки · ссылки · углы карточек · внутренние зависимости · стрелки · формы · оформление · композиции.
+## Состав системы
 
-Откройте схему кнопкой разворачивания справа сверху, чтобы рассмотреть образцы крупнее. У образцов 07–08 и 11–15 проверяются отдельные ссылки внутри текста; у 06 кликабелен весь блок. Размещение элементов в группах подбирает Mermaid.
+| Часть | Где работает | За что отвечает |
+|---|---|---|
+| **Управление проектом** | Специалист и ChatGPT в веб-чате Command Center | Проработка цели и решений, этапы Stage и вопросы Step, подготовка заданий, Review. Память этого чата организована в файлах ChatGPT Library |
+| **Локальное исполнение** | Codex в репозитории проекта | Загрузка нужного контекста, выбор маршрута и процедур, работа с кодом, проверки и подготовка результата. ExecPlan и дополнительные агенты подключаются по необходимости |
 
-```mermaid
-flowchart TB
-    subgraph TEXT["01–05 · Текст внутри блока"]
-        direction LR
-        P01["01. Обычный текст"]
-        P02["02. Заголовок<br/>Короткое описание<br/>Дополнительная строка"]
-        P03["03. Маркированный список<br/>• Цель<br/>• Ограничения<br/>• Результат"]
-        P04["04. Нумерованный список<br/>1. Прочитать<br/>2. Выполнить<br/>3. Проверить"]
-        P05["<b>05. Выделение и разделитель</b><hr/><i>Краткое пояснение</i><br/><code>AGENTS.md</code>"]
-        P01 ~~~ P02 ~~~ P03 ~~~ P04 ~~~ P05
-    end
+## Документация
 
-    subgraph LINKS["06–10 · Разные способы поставить ссылку"]
-        direction LR
-        P06["06. Ссылка на весь блок<br/>Нажмите в любом месте"]
-        P07["07. Отдельная ссылка<br/>Этот текст обычный<br/><a href='https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_WEB.md' target='_blank'>Открыть документ ↗</a>"]
-        P08["08. Две разные ссылки<br/><a href='https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_WEB.md' target='_blank'>Веб-часть ↗</a><br/><a href='https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_REPO.md#repo-target' target='_blank'>Repo-часть ↗</a>"]
-        P09["09. Ссылка на раздел<br/>Открыть сразу Repo target"]
-        subgraph P10["10. Компактная ссылка рядом"]
-            direction TB
-            P10body["Основное описание"]
-            P10link["Документ ↗"]
-            P10body ~~~ P10link
-        end
-        P06 ~~~ P07 ~~~ P08 ~~~ P09
-        P09 ~~~ P10
-    end
+Основные файлы сгруппированы по ответственности:
 
-    subgraph CORNERS["11–15 · Ссылки в частях карточки — проверка HTML"]
-        direction LR
-        P11["<div style='width:240px'><div style='text-align:left'><a href='https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_WEB.md' target='_blank'>Открыть ↖</a></div><br/><b>11. Сверху слева</b><br/>Основной текст карточки</div>"]
-        P12["<div style='width:240px'><div style='text-align:right'><a href='https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_REPO.md#repo-target' target='_blank'>Открыть ↗</a></div><br/><b>12. Сверху справа</b><br/>Основной текст карточки</div>"]
-        P13["<div style='width:240px'><b>13. Снизу слева</b><br/>Основной текст карточки<br/><br/><div style='text-align:left'><a href='https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_WEB.md' target='_blank'>Открыть ↙</a></div></div>"]
-        P14["<div style='width:240px'><b>14. Снизу справа</b><br/>Основной текст карточки<br/><br/><div style='text-align:right'><a href='https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_REPO.md#repo-target' target='_blank'>Открыть ↘</a></div></div>"]
-        P15["<div style='width:240px'><div style='text-align:left'><a href='https://github.com/Vkuvalin/command-center-public/blob/main/README.md#mermaid-palette' target='_blank'>↖ К палитре</a></div><br/><b>15. Две зоны навигации</b><br/>Основной текст карточки<br/><br/><div style='text-align:right'><a href='https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_WEB.md' target='_blank'>Подробнее ↘</a></div></div>"]
-        P11 ~~~ P12 ~~~ P13 ~~~ P14 ~~~ P15
-    end
+| Что раскрывает | Куда перейти |
+|---|---|
+| Общий веб- и repo-процесс, связи и путь артефактов | [Показ системы](PRESENTATION.md) |
+| Участники, слои и границы ответственности | [Карта архитектуры](Architecture_Map.md) · [Роль управляющего чата](Command_Center_Role.md) |
+| Проверка намерения, Stage 0, рабочие этапы, Steps и принятие решений | [Этапы и контрольные точки](Stage_Plan_Protocol.md) |
+| Ограниченное задание, передача в репозиторий и ожидаемый результат | [Протокол передачи заданий Codex](OPS_CENTER_CODEX_PROTOCOL.md) |
+| Память веб-чата, обновление файлов и продолжение в новом чате | [Рабочее состояние и Library](Command_Center_Working_State_Protocol.md) |
+| Вход Codex в проект и организация локального исполнения | [Шаблон AGENTS.md](AGENTS.md) · [Маршруты L0–L5](docs/codex/reasoning/) · [Skills](.agents/skills/) · [Роли агентов](.codex/agents/) |
+| План и состояние длительной локальной задачи | [Правила ExecPlan](.agents/PLANS.md) |
+| Области архитектурного анализа и связанные вопросы | [Архитектурный справочник](Architecture_Reasoning_Guide.md) |
+| Review, исправления, приёмка и завершение этапа | [Review / Fix / Commit](Stage_Plan_Protocol.md#7-review-fix-loop-и-commit) |
 
-    subgraph INTERNAL["16–20 · Внутренние линии и зависимости"]
-        direction LR
-        subgraph P16["16. Карточка и связанный файл"]
-            direction TB
-            P16a["Рабочее решение"] -->|"сохранить"| P16b[("Файл")]
-        end
-        subgraph P17["17. Вертикальная цепочка"]
-            direction TB
-            P17a["Прочитать"] --> P17b["Выполнить"] --> P17c["Проверить"]
-        end
-        subgraph P18["18. Горизонтальная цепочка"]
-            direction LR
-            P18a["Ввод"] --> P18b["Обработка"] --> P18c["Вывод"]
-        end
-        subgraph P19["19. Вложенная группа"]
-            direction TB
-            P19a["Внешний уровень"]
-            subgraph P19inner["Внутренний уровень"]
-                direction LR
-                P19b["Правило"] --> P19c["Действие"]
-            end
-            P19a --> P19inner
-        end
-        subgraph P20["20. Развилка в блоке"]
-            direction TB
-            P20a{"Готово?"} -->|"Да"| P20b["Принять"]
-            P20a -->|"Нет"| P20c["Уточнить"]
-        end
-        P16 ~~~ P17 ~~~ P18 ~~~ P19 ~~~ P20
-    end
+## Мой вклад
 
-    subgraph EDGES["21–25 · Линии и стрелки"]
-        direction LR
-        subgraph P21["21. Обычная стрелка"]
-            direction LR
-            P21a["А"] --> P21b["Б"]
-        end
-        subgraph P22["22. Пунктир"]
-            direction LR
-            P22a["А"] -.-> P22b["Б"]
-        end
-        subgraph P23["23. Толстая стрелка"]
-            direction LR
-            P23a["А"] ==> P23b["Б"]
-        end
-        subgraph P24["24. Двусторонняя связь"]
-            direction LR
-            P24a["А"] <--> P24b["Б"]
-        end
-        subgraph P25["25. Подпись и линия без стрелки"]
-            direction LR
-            P25a["А"] ---|"общий контракт"| P25b["Б"]
-        end
-        P21 ~~~ P22 ~~~ P23 ~~~ P24 ~~~ P25
-    end
+- Спроектировал роли управляющего чата, локального исполнителя и независимых проверяющих.
+- Выстроил работу через Stage, Step, обсуждение вопросов и контрольные точки принятия решений.
+- Разработал контракты заданий Task/Brief, передачи результата, Review, исправлений и завершения.
+- Организовал память веб-чата с четырьмя владельцами состояния, обновлением поколений файлов и восстановлением контекста.
+- Подготовил локальный вход агента, маршруты L0–L5, skills и роли дополнительных агентов с ограниченными полномочиями.
+- Реализовал PowerShell-инфраструктуру подключения проектов, распространения общих файлов и восстановления управляемых правил.
 
-    subgraph SHAPES["26–30 · Формы"]
-        direction LR
-        P26["26. Прямоугольник"]
-        P27("27. Скругление")
-        P28{"28. Условие"}
-        P29[("29. Хранилище")]
-        P30[["30. Подпроцесс"]]
-        P26 ~~~ P27 ~~~ P28 ~~~ P29 ~~~ P30
-    end
+## Связанные инструменты
 
-    subgraph STYLES["31–35 · Цвет и рамки"]
-        direction LR
-        P31["31. Цвет заливки"]
-        P32["32. Цвет рамки"]
-        P33["33. Толстая рамка"]
-        P34["34. Пунктирная рамка"]
-        subgraph P35["35. Общий класс оформления"]
-            direction TB
-            P35a["Одинаковый стиль"]
-            P35b["В другом узле"]
-            P35a ~~~ P35b
-        end
-        P31 ~~~ P32 ~~~ P33 ~~~ P34
-        P34 ~~~ P35
-    end
+| Инструмент | Назначение |
+|---|---|
+| [Reviewer Hub](https://github.com/Vkuvalin/reviewer-hub) | Отдельно вызываемый рецензент с проектной памятью |
+| [ChatGPT Helper](https://github.com/Vkuvalin/chatgpt-helper) | Вспомогательный инструмент для работы в веб-интерфейсе ChatGPT |
+| **Chat Skills** | Отдельная библиотека процедур для управляющего чата |
 
-    subgraph LAYOUTS["36–40 · Композиции"]
-        direction LR
-        subgraph P36["36. Список с внутренними связями"]
-            direction TB
-            P36a["1. Намерение"] --> P36b["2. Решение"] --> P36c["3. Задание"]
-        end
-        subgraph P37["37. Веер зависимостей"]
-            direction TB
-            P37a["Задание"] --> P37b["Контракт"]
-            P37a --> P37c["Код"]
-            P37a --> P37d["Тесты"]
-        end
-        subgraph P38["38. Сбор нескольких входов"]
-            direction TB
-            P38a["Diff"] --> P38d["Review"]
-            P38b["Отчёт"] --> P38d
-            P38c["Проверки"] --> P38d
-        end
-        subgraph P39["39. Цикл исправления"]
-            direction TB
-            P39a["Выполнение"] --> P39b["Проверка"]
-            P39b -->|"Замечание"| P39c["Исправление"]
-            P39c --> P39b
-            P39b -->|"Принято"| P39d["Завершение"]
-        end
-        subgraph P40["40. Две дорожки"]
-            direction TB
-            subgraph P40web["Веб · ChatGPT"]
-                direction LR
-                P40a["Решение"] --> P40b["Задание"]
-                P40c["Review"]
-            end
-            subgraph P40repo["Локально · Codex"]
-                direction LR
-                P40d["Выполнение"] --> P40e["Проверки"]
-            end
-            P40b -->|"Передача"| P40d
-            P40e -->|"Результат"| P40c
-        end
-        P36 ~~~ P37 ~~~ P38 ~~~ P39 ~~~ P40
-    end
+Инструменты подключаются к соответствующим задачам; их применение определяется выбранным процессом.
 
-    TEXT ~~~ LINKS ~~~ CORNERS ~~~ INTERNAL ~~~ EDGES ~~~ SHAPES ~~~ STYLES ~~~ LAYOUTS
+<details>
+<summary>PowerShell: подключение проектов и общая инфраструктура</summary>
 
-    click P06 href "https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_WEB.md" "Весь блок ведёт к документу" _blank
-    click P09 href "https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_REPO.md#repo-target" "Переход к разделу" _blank
-    click P10link href "https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_WEB.md" "Небольшой отдельный узел-ссылка" _blank
-    click P16b href "https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_REPO.md#repo-target" "Файл внутри составного блока" _blank
+[PowerShell-скрипт](scripts/command-center.ps1) и [launcher](Command-Center.bat) создают и подключают проекты, распространяют общие рабочие файлы и проверяют их целостность. Опциональный Guard восстанавливает управляемую инфраструктуру зарегистрированных проектов.
 
-    classDef default fill:#162232,stroke:#7a8b9e,color:#edf4ff;
-    classDef link fill:#123943,stroke:#45d3d0,color:#edf4ff;
-    classDef purple fill:#3a2555,stroke:#bca0e6,color:#ffffff;
-    classDef accent stroke:#ffb454,stroke-width:3px;
-    classDef thick stroke:#6ed58a,stroke-width:5px;
-    classDef dashed stroke:#a6c8ff,stroke-dasharray:6 4;
-    classDef shared fill:#183f30,stroke:#6ed58a,color:#edf4ff;
-    class P06,P09,P10link,P16b link;
-    class P31 purple;
-    class P32 accent;
-    class P33 thick;
-    class P34 dashed;
-    class P35a,P35b shared;
-    style TEXT fill:#101820,stroke:#526477,color:#edf4ff
-    style LINKS fill:#101820,stroke:#526477,color:#edf4ff
-    style CORNERS fill:#101820,stroke:#526477,color:#edf4ff
-    style INTERNAL fill:#101820,stroke:#526477,color:#edf4ff
-    style EDGES fill:#101820,stroke:#526477,color:#edf4ff
-    style SHAPES fill:#101820,stroke:#526477,color:#edf4ff
-    style STYLES fill:#101820,stroke:#526477,color:#edf4ff
-    style LAYOUTS fill:#101820,stroke:#526477,color:#edf4ff
-```
-
-[↑ Наверх](#-command-center) · [К первой схеме](#проверка-навигации-по-схеме) · [Скачать исходник палитры](assets/mermaid/formatting-palette.mmd)
+</details>
