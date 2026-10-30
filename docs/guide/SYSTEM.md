@@ -9,7 +9,19 @@ Command Center — протокольная система работы спец
 ## Две среды и специалист между ними
 
 ```mermaid
-flowchart LR
+---
+config:
+  layout: dagre
+  look: classic
+  fontFamily: Arial, sans-serif
+  fontSize: 16
+  flowchart:
+    nodeSpacing: 24
+    rankSpacing: 24
+    padding: 10
+    diagramPadding: 8
+---
+flowchart TB
     H["Специалист<br/>Цель · решения · приёмка"]:::person
     subgraph WEB["ChatGPT · веб"]
         direction TB
@@ -26,9 +38,9 @@ flowchart LR
         S -. "Результаты" .-> E
         E -. "По необходимости" .-> P
     end
-    H <-->|"Обсуждение и решения"| C
-    C -->|"Task / Brief · передаёт специалист"| E
-    E -->|"Результат · передаёт специалист"| C
+    H <-->|"Обсуждение<br/>и решения"| C
+    C -->|"Task / Brief<br/>передаёт специалист"| E
+    E -->|"Результат<br/>передаёт специалист"| C
     classDef person fill:#423218,stroke:#e6bb62,color:#edf4ff;
     classDef web fill:#182f4a,stroke:#75b2f0,color:#edf4ff;
     classDef memory fill:#16382e,stroke:#6ec7a0,color:#edf4ff;
