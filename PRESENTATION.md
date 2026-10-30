@@ -6,7 +6,7 @@
 
 **Как специалист, управляющий веб-чат и локальный Codex ведут проект от вопроса до принятого результата.**
 
-[README](README.md) · [Блочная компоновка](#version-v2) · [Прямые связи](#version-v1-new) · [Артефакты](#artifacts) · [Протоколы](#sources)
+[README](README.md) · [Устройство системы](docs/guide/SYSTEM.md) · [Блочная компоновка](#version-v2) · [Прямые связи](#version-v1-new) · [Артефакты](#artifacts) · [Протоколы](#sources)
 
 </div>
 
@@ -870,4 +870,4 @@ L0–L5 определяют организацию работы: прямое �
 
 </details>
 
-[README](README.md) · [Блочная компоновка](#version-v2) · [Прямые связи](#version-v1-new) · [Артефакты](#artifacts) · [Протоколы](#sources) · [К началу файла](#presentation-top)
+[README](README.md) · [Устройство системы](docs/guide/SYSTEM.md) · [Блочная компоновка](#version-v2) · [Прямые связи](#version-v1-new) · [Артефакты](#artifacts) · [Протоколы](#sources) · [К началу файла](#presentation-top)
