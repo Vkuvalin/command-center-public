@@ -1,5 +1,7 @@
 # 🧠 Command Center
 
+[Тест № 1](#проверка-навигации-по-схеме) · [Палитра: 40 вариантов](#mermaid-palette) · [Исходник Mermaid](assets/mermaid/formatting-palette.mmd)
+
 Система работы специалиста с ChatGPT и Codex: от проработки решения до исполнения и проверки изменений.
 
 ## Проверка навигации по схеме
@@ -17,3 +19,209 @@ flowchart LR
 ```
 
 Это временная проверка кликабельной навигации перед подготовкой полного показа процесса.
+
+---
+
+<a id="mermaid-palette"></a>
+
+## Временная проверка № 2 — палитра оформления
+
+[Тест № 1](#проверка-навигации-по-схеме) · [Палитра: 40 вариантов](#mermaid-palette) · [Исходник Mermaid](assets/mermaid/formatting-palette.mmd)
+
+**40 образцов в одной схеме.** Текст и списки · ссылки · углы карточек · внутренние зависимости · стрелки · формы · оформление · композиции.
+
+Откройте схему кнопкой разворачивания справа сверху, чтобы рассмотреть образцы крупнее. У образцов 07–08 и 11–15 проверяются отдельные ссылки внутри текста; у 06 кликабелен весь блок. Размещение элементов в группах подбирает Mermaid.
+
+```mermaid
+flowchart TB
+    subgraph TEXT["01–05 · Текст внутри блока"]
+        direction LR
+        P01["01. Обычный текст"]
+        P02["02. Заголовок<br/>Короткое описание<br/>Дополнительная строка"]
+        P03["03. Маркированный список<br/>• Цель<br/>• Ограничения<br/>• Результат"]
+        P04["04. Нумерованный список<br/>1. Прочитать<br/>2. Выполнить<br/>3. Проверить"]
+        P05["<b>05. Выделение и разделитель</b><hr/><i>Краткое пояснение</i><br/><code>AGENTS.md</code>"]
+        P01 ~~~ P02 ~~~ P03 ~~~ P04 ~~~ P05
+    end
+
+    subgraph LINKS["06–10 · Разные способы поставить ссылку"]
+        direction LR
+        P06["06. Ссылка на весь блок<br/>Нажмите в любом месте"]
+        P07["07. Отдельная ссылка<br/>Этот текст обычный<br/><a href='https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_WEB.md' target='_blank'>Открыть документ ↗</a>"]
+        P08["08. Две разные ссылки<br/><a href='https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_WEB.md' target='_blank'>Веб-часть ↗</a><br/><a href='https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_REPO.md#repo-target' target='_blank'>Repo-часть ↗</a>"]
+        P09["09. Ссылка на раздел<br/>Открыть сразу Repo target"]
+        subgraph P10["10. Компактная ссылка рядом"]
+            direction TB
+            P10body["Основное описание"]
+            P10link["Документ ↗"]
+            P10body ~~~ P10link
+        end
+        P06 ~~~ P07 ~~~ P08 ~~~ P09
+        P09 ~~~ P10
+    end
+
+    subgraph CORNERS["11–15 · Ссылки в частях карточки — проверка HTML"]
+        direction LR
+        P11["<div style='width:240px'><div style='text-align:left'><a href='https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_WEB.md' target='_blank'>Открыть ↖</a></div><br/><b>11. Сверху слева</b><br/>Основной текст карточки</div>"]
+        P12["<div style='width:240px'><div style='text-align:right'><a href='https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_REPO.md#repo-target' target='_blank'>Открыть ↗</a></div><br/><b>12. Сверху справа</b><br/>Основной текст карточки</div>"]
+        P13["<div style='width:240px'><b>13. Снизу слева</b><br/>Основной текст карточки<br/><br/><div style='text-align:left'><a href='https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_WEB.md' target='_blank'>Открыть ↙</a></div></div>"]
+        P14["<div style='width:240px'><b>14. Снизу справа</b><br/>Основной текст карточки<br/><br/><div style='text-align:right'><a href='https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_REPO.md#repo-target' target='_blank'>Открыть ↘</a></div></div>"]
+        P15["<div style='width:240px'><div style='text-align:left'><a href='https://github.com/Vkuvalin/command-center-public/blob/main/README.md#mermaid-palette' target='_blank'>↖ К палитре</a></div><br/><b>15. Две зоны навигации</b><br/>Основной текст карточки<br/><br/><div style='text-align:right'><a href='https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_WEB.md' target='_blank'>Подробнее ↘</a></div></div>"]
+        P11 ~~~ P12 ~~~ P13 ~~~ P14 ~~~ P15
+    end
+
+    subgraph INTERNAL["16–20 · Внутренние линии и зависимости"]
+        direction LR
+        subgraph P16["16. Карточка и связанный файл"]
+            direction TB
+            P16a["Рабочее решение"] -->|"сохранить"| P16b[("Файл")]
+        end
+        subgraph P17["17. Вертикальная цепочка"]
+            direction TB
+            P17a["Прочитать"] --> P17b["Выполнить"] --> P17c["Проверить"]
+        end
+        subgraph P18["18. Горизонтальная цепочка"]
+            direction LR
+            P18a["Ввод"] --> P18b["Обработка"] --> P18c["Вывод"]
+        end
+        subgraph P19["19. Вложенная группа"]
+            direction TB
+            P19a["Внешний уровень"]
+            subgraph P19inner["Внутренний уровень"]
+                direction LR
+                P19b["Правило"] --> P19c["Действие"]
+            end
+            P19a --> P19inner
+        end
+        subgraph P20["20. Развилка в блоке"]
+            direction TB
+            P20a{"Готово?"} -->|"Да"| P20b["Принять"]
+            P20a -->|"Нет"| P20c["Уточнить"]
+        end
+        P16 ~~~ P17 ~~~ P18 ~~~ P19 ~~~ P20
+    end
+
+    subgraph EDGES["21–25 · Линии и стрелки"]
+        direction LR
+        subgraph P21["21. Обычная стрелка"]
+            direction LR
+            P21a["А"] --> P21b["Б"]
+        end
+        subgraph P22["22. Пунктир"]
+            direction LR
+            P22a["А"] -.-> P22b["Б"]
+        end
+        subgraph P23["23. Толстая стрелка"]
+            direction LR
+            P23a["А"] ==> P23b["Б"]
+        end
+        subgraph P24["24. Двусторонняя связь"]
+            direction LR
+            P24a["А"] <--> P24b["Б"]
+        end
+        subgraph P25["25. Подпись и линия без стрелки"]
+            direction LR
+            P25a["А"] ---|"общий контракт"| P25b["Б"]
+        end
+        P21 ~~~ P22 ~~~ P23 ~~~ P24 ~~~ P25
+    end
+
+    subgraph SHAPES["26–30 · Формы"]
+        direction LR
+        P26["26. Прямоугольник"]
+        P27("27. Скругление")
+        P28{"28. Условие"}
+        P29[("29. Хранилище")]
+        P30[["30. Подпроцесс"]]
+        P26 ~~~ P27 ~~~ P28 ~~~ P29 ~~~ P30
+    end
+
+    subgraph STYLES["31–35 · Цвет и рамки"]
+        direction LR
+        P31["31. Цвет заливки"]
+        P32["32. Цвет рамки"]
+        P33["33. Толстая рамка"]
+        P34["34. Пунктирная рамка"]
+        subgraph P35["35. Общий класс оформления"]
+            direction TB
+            P35a["Одинаковый стиль"]
+            P35b["В другом узле"]
+            P35a ~~~ P35b
+        end
+        P31 ~~~ P32 ~~~ P33 ~~~ P34
+        P34 ~~~ P35
+    end
+
+    subgraph LAYOUTS["36–40 · Композиции"]
+        direction LR
+        subgraph P36["36. Список с внутренними связями"]
+            direction TB
+            P36a["1. Намерение"] --> P36b["2. Решение"] --> P36c["3. Задание"]
+        end
+        subgraph P37["37. Веер зависимостей"]
+            direction TB
+            P37a["Задание"] --> P37b["Контракт"]
+            P37a --> P37c["Код"]
+            P37a --> P37d["Тесты"]
+        end
+        subgraph P38["38. Сбор нескольких входов"]
+            direction TB
+            P38a["Diff"] --> P38d["Review"]
+            P38b["Отчёт"] --> P38d
+            P38c["Проверки"] --> P38d
+        end
+        subgraph P39["39. Цикл исправления"]
+            direction TB
+            P39a["Выполнение"] --> P39b["Проверка"]
+            P39b -->|"Замечание"| P39c["Исправление"]
+            P39c --> P39b
+            P39b -->|"Принято"| P39d["Завершение"]
+        end
+        subgraph P40["40. Две дорожки"]
+            direction TB
+            subgraph P40web["Веб · ChatGPT"]
+                direction LR
+                P40a["Решение"] --> P40b["Задание"]
+                P40c["Review"]
+            end
+            subgraph P40repo["Локально · Codex"]
+                direction LR
+                P40d["Выполнение"] --> P40e["Проверки"]
+            end
+            P40b -->|"Передача"| P40d
+            P40e -->|"Результат"| P40c
+        end
+        P36 ~~~ P37 ~~~ P38 ~~~ P39 ~~~ P40
+    end
+
+    TEXT ~~~ LINKS ~~~ CORNERS ~~~ INTERNAL ~~~ EDGES ~~~ SHAPES ~~~ STYLES ~~~ LAYOUTS
+
+    click P06 href "https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_WEB.md" "Весь блок ведёт к документу" _blank
+    click P09 href "https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_REPO.md#repo-target" "Переход к разделу" _blank
+    click P10link href "https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_WEB.md" "Небольшой отдельный узел-ссылка" _blank
+    click P16b href "https://github.com/Vkuvalin/command-center-public/blob/main/docs/guide/LINK_TEST_REPO.md#repo-target" "Файл внутри составного блока" _blank
+
+    classDef default fill:#162232,stroke:#7a8b9e,color:#edf4ff;
+    classDef link fill:#123943,stroke:#45d3d0,color:#edf4ff;
+    classDef purple fill:#3a2555,stroke:#bca0e6,color:#ffffff;
+    classDef accent stroke:#ffb454,stroke-width:3px;
+    classDef thick stroke:#6ed58a,stroke-width:5px;
+    classDef dashed stroke:#a6c8ff,stroke-dasharray:6 4;
+    classDef shared fill:#183f30,stroke:#6ed58a,color:#edf4ff;
+    class P06,P09,P10link,P16b link;
+    class P31 purple;
+    class P32 accent;
+    class P33 thick;
+    class P34 dashed;
+    class P35a,P35b shared;
+    style TEXT fill:#101820,stroke:#526477,color:#edf4ff
+    style LINKS fill:#101820,stroke:#526477,color:#edf4ff
+    style CORNERS fill:#101820,stroke:#526477,color:#edf4ff
+    style INTERNAL fill:#101820,stroke:#526477,color:#edf4ff
+    style EDGES fill:#101820,stroke:#526477,color:#edf4ff
+    style SHAPES fill:#101820,stroke:#526477,color:#edf4ff
+    style STYLES fill:#101820,stroke:#526477,color:#edf4ff
+    style LAYOUTS fill:#101820,stroke:#526477,color:#edf4ff
+```
+
+[↑ Наверх](#-command-center) · [К первой схеме](#проверка-навигации-по-схеме) · [Скачать исходник палитры](assets/mermaid/formatting-palette.mmd)
