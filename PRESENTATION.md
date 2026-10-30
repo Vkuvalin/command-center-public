@@ -14,12 +14,47 @@
 
 Два варианта показывают один процесс. В каждом варианте веб-схема и локальная схема продолжают друг друга через **A — задание в репозиторий** и **B — результат обратно в веб**. Ссылки внутри карточек открывают соответствующий источник.
 
-- **Синий** — обсуждение и решения.
-- **Жёлтый** — передача задания.
-- **Зелёный** — Library.
-- **Фиолетовый** — действия в репозитории.
-- **Розовый** — Review и исправления.
-- **Серый** — вспомогательные механизмы.
+```mermaid
+---
+config:
+  layout: dagre
+  look: classic
+  fontFamily: Arial, sans-serif
+  fontSize: 14
+  flowchart:
+    nodeSpacing: 14
+    rankSpacing: 12
+    padding: 8
+    diagramPadding: 4
+    subGraphTitleMargin:
+      top: 0
+      bottom: 0
+---
+flowchart TB
+    subgraph LEGEND_TOP[" "]
+        direction LR
+        LEGEND_WEB["<div style='width:190px;text-align:center;white-space:normal'>Обсуждение<br/>и решения</div>"]:::web
+        LEGEND_TRANSFER["<div style='width:190px;text-align:center;white-space:normal'>Передача<br/>задания</div>"]:::transfer
+        LEGEND_MEMORY["<div style='width:190px;text-align:center;white-space:normal'>Library<br/>Память веб-чата</div>"]:::memory
+        LEGEND_WEB ~~~ LEGEND_TRANSFER ~~~ LEGEND_MEMORY
+    end
+    subgraph LEGEND_BOTTOM[" "]
+        direction LR
+        LEGEND_REPO["<div style='width:190px;text-align:center;white-space:normal'>Действия<br/>в репозитории</div>"]:::repo
+        LEGEND_REVIEW["<div style='width:190px;text-align:center;white-space:normal'>Review<br/>и исправления</div>"]:::review
+        LEGEND_INFRA["<div style='width:190px;text-align:center;white-space:normal'>Вспомогательные<br/>механизмы</div>"]:::infra
+        LEGEND_REPO ~~~ LEGEND_REVIEW ~~~ LEGEND_INFRA
+    end
+    LEGEND_TOP ~~~ LEGEND_BOTTOM
+    style LEGEND_TOP fill:transparent,stroke:transparent
+    style LEGEND_BOTTOM fill:transparent,stroke:transparent
+    classDef web fill:#182f4a,stroke:#75b2f0,color:#edf4ff;
+    classDef transfer fill:#423218,stroke:#e6bb62,color:#edf4ff;
+    classDef memory fill:#16382e,stroke:#6ec7a0,color:#edf4ff;
+    classDef repo fill:#302447,stroke:#b6a0e5,color:#edf4ff;
+    classDef review fill:#402730,stroke:#ed9bae,color:#edf4ff;
+    classDef infra fill:#28323b,stroke:#99adbe,color:#edf4ff;
+```
 
 <a id="versions"></a>
 
