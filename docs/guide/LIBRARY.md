@@ -122,7 +122,7 @@ config:
 ---
 flowchart LR
     PROJECT["<div style='width:170px;text-align:left;white-space:normal;overflow-wrap:anywhere'><b>Проект</b><br/>• Подтвердить пространство<br/>• Указать точку продолжения</div>"]:::web
-    RESTORE["<div style='width:190px;text-align:left;white-space:normal;overflow-wrap:anywhere'><b>Library</b><br/>• Оперативная память → план<br/>• Определение → архитектура<br/><div style='text-align:right'><a href='https://github.com/Vkuvalin/command-center-public/blob/main/Command_Center_Working_State_Protocol.md#12-recovery-and-new-chat-continuation' target='_blank'>Working State</a></div></div>"]:::memory
+    RESTORE["<div style='width:230px;text-align:left;white-space:normal;overflow-wrap:anywhere'><b>Library</b><br/>Порядок чтения:<br/>1. OPERATION_MEMORY.md<br/>2. STAGE_PLAN.md<br/>3. PROJECT_DEFINITION.md<br/>4. ARCHITECTURE.md<br/><div style='text-align:right'><a href='https://github.com/Vkuvalin/command-center-public/blob/main/Command_Center_Working_State_Protocol.md#12-recovery-and-new-chat-continuation' target='_blank'>Working State</a></div></div>"]:::memory
     CHECK["<div style='width:170px;text-align:left;white-space:normal;overflow-wrap:anywhere'><b>Сверка</b><br/>• Свежий запрос и факты<br/>• Открытые вопросы</div>"]:::web
     CONTINUE["<div style='width:170px;text-align:left;white-space:normal;overflow-wrap:anywhere'><b>Продолжение</b><br/>• Текущий Stage и Step<br/>• Следующее действие</div>"]:::web
     PROJECT --> RESTORE --> CHECK --> CONTINUE
