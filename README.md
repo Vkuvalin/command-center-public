@@ -2,11 +2,14 @@
 
 # 🧠 Command Center
 
-**Система работы специалиста с ChatGPT и Codex — от проработки задачи до проверенного изменения.**
+**Система оркестрации разработки с ИИ-агентами под управлением специалиста.**
 
 ![Markdown](https://img.shields.io/badge/Markdown-181717?style=flat-square&logo=markdown)
 ![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=flat-square)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
+![Agent Orchestration](https://img.shields.io/badge/Agent_Orchestration-5B6BBF?style=flat-square)
+![Context Engineering](https://img.shields.io/badge/Context_Engineering-2E8B57?style=flat-square)
+![Workflow Design](https://img.shields.io/badge/Workflow_Design-8E5AA9?style=flat-square)
 
 [Устройство системы](docs/guide/SYSTEM.md) · [Полный процесс](PRESENTATION.md) · [Документация](#документация) · [Состав системы](#состав-системы) · [Мой вклад](#мой-вклад) · [Связанные инструменты](#связанные-инструменты)
 
